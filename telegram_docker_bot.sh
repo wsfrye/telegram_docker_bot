@@ -15,7 +15,7 @@
     if [ -f "$PID_FILE" ]; then
         PID=$(cat $PID_FILE)
 
-        if [ -e "/proc/$PID" ]; then
+        if ps -p $PID > /dev/null 2>&1; then
             echo "Process with PID $PID is already running."
             exit
         else
